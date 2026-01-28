@@ -20,6 +20,11 @@
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-surefire-plugin</artifactId>
               <version>3.5.4</version>
+              <configuration>
+                  <suiteXmlFiles>
+                      <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                  </suiteXmlFiles>
+              </configuration>
           </plugin>
       </plugins>
   </build>
@@ -42,6 +47,18 @@
           <groupId>io.github.bonigarcia</groupId>
           <artifactId>webdrivermanager</artifactId>
           <version>6.3.3</version>
+      </dependency>
+
+      <dependency>
+          <groupId>io.cucumber</groupId>
+          <artifactId>cucumber-java</artifactId>
+          <version>7.33.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>io.cucumber</groupId>
+          <artifactId>cucumber-testng</artifactId>
+          <version>7.33.0</version>
       </dependency>
 
     <dependency>
