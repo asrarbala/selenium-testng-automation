@@ -1,6 +1,5 @@
 package com.asrar.automation.stepdefinitions;
 
-import com.asrar.automation.pages.LoginPage;
 import com.asrar.automation.pages.ProductsPage;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
