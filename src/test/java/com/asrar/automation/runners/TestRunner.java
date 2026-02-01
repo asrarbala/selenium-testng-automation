@@ -9,7 +9,7 @@ import io.cucumber.testng.CucumberOptions;
                 "com.asrar.automation.stepdefinitions",
                 "com.asrar.automation.hooks"
         },
-        tags = "@smoke",
+        tags = "@regression",
         plugin = {
                 "pretty",
                 "html:target/cucumber-report.html",

@@ -1,6 +1,6 @@
+@regression
 Feature: Login functionality
 
-  @smoke
   Scenario Outline: Login with invalid credentials
     Given user is on the login page
     When user logs in with username "<username>" and password "<password>"

@@ -1,3 +1,4 @@
+@regression
 Feature: Checkout functionality
 
   Background:
