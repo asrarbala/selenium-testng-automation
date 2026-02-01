@@ -4,6 +4,7 @@ import com.asrar.automation.config.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
@@ -21,7 +22,12 @@ public class DriverFactory {
 
             case "chrome":
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+
+                //Handle Weak Password Popup
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--guest");
+
+                driver = new ChromeDriver(options);
                 break;
 
             case "firefox":

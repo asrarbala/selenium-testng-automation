@@ -10,6 +10,10 @@ public class ProductsPage {
 
     private By productsTitle = By.className("title");
     private By inventoryContainer = By.id("inventory_container");
+    private By addToCartButton = By.id("add-to-cart-sauce-labs-backpack");
+    private By cartBadge = By.className("shopping_cart_badge");
+    private By cartIcon = By.className("shopping_cart_link");
+
 
     public ProductsPage() {
         this.driver = DriverFactory.getDriver();
@@ -20,7 +24,20 @@ public class ProductsPage {
                 && driver.findElement(inventoryContainer).isDisplayed();
     }
 
-    public String getPageTitle() {
+    public String getHeaderText() {
         return driver.findElement(productsTitle).getText();
     }
+
+    public void addBackpackToCart() {
+        driver.findElement(addToCartButton).click();
+    }
+
+    public boolean isCartBadgeDisplayed() {
+        return driver.findElement(cartBadge).isDisplayed();
+    }
+
+    public void openCart() {
+        driver.findElement(cartIcon).click();
+    }
+
 }
