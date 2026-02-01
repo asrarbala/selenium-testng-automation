@@ -1,4 +1,4 @@
-```md
+
 # Selenium Cucumber TestNG Automation Framework
 
 ## 📌 Overview
@@ -26,23 +26,28 @@ The framework automates the SauceDemo application to simulate real-world e-comme
 - DriverFactory for browser management  
 - Hooks for setup/teardown  
 - Explicit waits for stability  
-- ChromeOptions configured for stable execution  
+- ChromeOptions configured for stable execution
 
 ---
-
 ## 📂 Project Structure
-```
-<pre>
+```text
 src
-├── main/java/config
-├── test/java
-│   ├── pages
-│   ├── stepdefinitions
-│   ├── hooks
-│   ├── runners
-│   └── utils
-└── test/resources/features
-</pre>
+├── main
+│   └── java
+│       └── config              # DriverFactory, ConfigReader
+│
+├── test
+│   ├── java
+│   │   ├── hooks               # Cucumber hooks
+│   │   ├── pages               # Page Object classes
+│   │   ├── runners             # Test runners
+│   │   ├── stepdefinitions     # Step definitions
+│   │   └── utils               # Utility classes
+│   │
+│   └── resources
+│       ├── config              # config.properties
+│       └── features            # Cucumber feature files
+```
 
 ---
 
