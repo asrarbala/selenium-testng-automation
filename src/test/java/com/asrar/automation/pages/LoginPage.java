@@ -3,8 +3,13 @@ package com.asrar.automation.pages;
 import com.asrar.automation.utils.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoginPage {
+
+    private static final Logger log =
+            LoggerFactory.getLogger(LoginPage.class);
 
     private WebDriver driver;
 
@@ -26,6 +31,7 @@ public class LoginPage {
     }
 
     public void clickLogin() {
+        log.info("Clicking login button");
         driver.findElement(loginButton).click();
     }
 

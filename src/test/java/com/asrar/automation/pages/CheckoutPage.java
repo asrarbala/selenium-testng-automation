@@ -3,8 +3,13 @@ package com.asrar.automation.pages;
 import com.asrar.automation.utils.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CheckoutPage {
+
+    private static final Logger log =
+            LoggerFactory.getLogger(CheckoutPage.class);
 
     private WebDriver driver;
 
@@ -20,6 +25,7 @@ public class CheckoutPage {
     }
 
     public void enterCheckoutInfo(String fName, String lName, String zip) {
+        log.info("Entering checkout details");
         driver.findElement(firstName).sendKeys(fName);
         driver.findElement(lastName).sendKeys(lName);
         driver.findElement(postalCode).sendKeys(zip);
@@ -27,6 +33,7 @@ public class CheckoutPage {
     }
 
     public void clickFinish() {
+        log.info("Finishing checkout");
         driver.findElement(finishBtn).click();
     }
 

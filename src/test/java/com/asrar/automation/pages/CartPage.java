@@ -3,8 +3,13 @@ package com.asrar.automation.pages;
 import com.asrar.automation.utils.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CartPage {
+
+    private static final Logger log =
+            LoggerFactory.getLogger(CartPage.class);
 
     private WebDriver driver;
 
@@ -21,10 +26,12 @@ public class CartPage {
     }
 
     public boolean isItemDisplayedInCart() {
+        log.info("Checking items in cart");
         return driver.findElement(cartItem).isDisplayed();
     }
 
     public void clickCheckout() {
+        log.info("Proceeding to checkout");
         driver.findElement(checkoutButton).click();
     }
 }

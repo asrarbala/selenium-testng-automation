@@ -3,8 +3,13 @@ package com.asrar.automation.pages;
 import com.asrar.automation.utils.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ProductsPage {
+
+    private static final Logger log =
+            LoggerFactory.getLogger(ProductsPage.class);
 
     private WebDriver driver;
 
@@ -29,6 +34,7 @@ public class ProductsPage {
     }
 
     public void addBackpackToCart() {
+        log.info("Adding backpack to cart");
         driver.findElement(addToCartButton).click();
     }
 
@@ -37,6 +43,7 @@ public class ProductsPage {
     }
 
     public void openCart() {
+        log.info("Opening cart page");
         driver.findElement(cartIcon).click();
     }
 
