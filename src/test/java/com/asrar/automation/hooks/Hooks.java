@@ -21,11 +21,15 @@ public class Hooks {
     public void tearDown(Scenario scenario) {
 
         if (scenario.isFailed()) {
-            byte[] screenshot =
-                    ((TakesScreenshot) driver)
-                            .getScreenshotAs(OutputType.BYTES);
+            try{
+                byte[] screenshot =
+                        ((TakesScreenshot) driver)
+                                .getScreenshotAs(OutputType.BYTES);
 
-            scenario.attach(screenshot, "image/png", scenario.getName());
+                scenario.attach(screenshot, "image/png", scenario.getName());
+        } catch (Exception e) {
+                System.out.println("Screenshot failed: " + e.getMessage());
+            }
         }
 
         driver.quit();
