@@ -37,4 +37,9 @@ public class ConfigReader {
         return Integer.parseInt(properties.getProperty("timeout"));
     }
 
+    public static boolean isHeadless() {
+        return Boolean.parseBoolean(properties.getProperty("headless"));
+    }
+
+
 }
