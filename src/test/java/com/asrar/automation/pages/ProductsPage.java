@@ -1,6 +1,7 @@
 package com.asrar.automation.pages;
 
 import com.asrar.automation.utils.DriverFactory;
+import com.asrar.automation.utils.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ public class ProductsPage {
             LoggerFactory.getLogger(ProductsPage.class);
 
     private WebDriver driver;
+    private WaitHelper waitHelper;
 
     private By productsTitle = By.className("title");
     private By inventoryContainer = By.id("inventory_container");
@@ -22,6 +24,9 @@ public class ProductsPage {
 
     public ProductsPage() {
         this.driver = DriverFactory.getDriver();
+        this.waitHelper = new WaitHelper(driver);
+        // Confirm Products page loaded
+        waitHelper.waitForVisibility(productsTitle);
     }
 
     public boolean isProductsPageDisplayed() {
@@ -29,17 +34,13 @@ public class ProductsPage {
                 && driver.findElement(inventoryContainer).isDisplayed();
     }
 
-    public String getHeaderText() {
-        return driver.findElement(productsTitle).getText();
-    }
-
     public void addBackpackToCart() {
         log.info("Adding backpack to cart");
-        driver.findElement(addToCartButton).click();
+        waitHelper.waitForClickable(addToCartButton).click();
     }
 
     public boolean isCartBadgeDisplayed() {
-        return driver.findElement(cartBadge).isDisplayed();
+        return waitHelper.waitForVisibility(cartBadge).isDisplayed();
     }
 
     public void openCart() {

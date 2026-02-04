@@ -1,6 +1,7 @@
 package com.asrar.automation.pages;
 
 import com.asrar.automation.utils.DriverFactory;
+import com.asrar.automation.utils.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ public class CheckoutPage {
             LoggerFactory.getLogger(CheckoutPage.class);
 
     private WebDriver driver;
+    private WaitHelper waitHelper;
 
     private By firstName = By.id("first-name");
     private By lastName = By.id("last-name");
@@ -22,6 +24,9 @@ public class CheckoutPage {
 
     public CheckoutPage() {
         this.driver = DriverFactory.getDriver();
+        this.waitHelper = new WaitHelper(driver);
+        //Confirm checkout page loaded
+        waitHelper.waitForVisibility(firstName);
     }
 
     public void enterCheckoutInfo(String fName, String lName, String zip) {
@@ -29,12 +34,14 @@ public class CheckoutPage {
         driver.findElement(firstName).sendKeys(fName);
         driver.findElement(lastName).sendKeys(lName);
         driver.findElement(postalCode).sendKeys(zip);
-        driver.findElement(continueBtn).click();
+        waitHelper.waitForClickable(continueBtn).click();
     }
 
     public void clickFinish() {
         log.info("Finishing checkout");
-        driver.findElement(finishBtn).click();
+        waitHelper.waitForClickable(finishBtn).click();
+        //waits till order is completed
+        waitHelper.waitForVisibility(successMsg);
     }
 
     public boolean isOrderSuccessful() {

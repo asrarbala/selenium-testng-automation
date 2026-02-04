@@ -33,9 +33,18 @@ public class ConfigReader {
         return properties.getProperty("baseUrl");
     }
 
-    public static int getTimeout() {
-        return Integer.parseInt(properties.getProperty("timeout"));
+    public static int getImplicitWait() {
+        return Integer.parseInt(
+                properties.getProperty("implicit.wait")
+        );
     }
+
+    public static int getExplicitWait() {
+        return Integer.parseInt(
+                properties.getProperty("explicit.wait")
+        );
+    }
+
 
     public static boolean isHeadless() {
         return Boolean.parseBoolean(properties.getProperty("headless"));

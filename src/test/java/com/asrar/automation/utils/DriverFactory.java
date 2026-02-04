@@ -72,7 +72,7 @@ public class DriverFactory {
 
         driver.manage().window().maximize();
         driver.manage().timeouts()
-                .implicitlyWait(Duration.ofSeconds(ConfigReader.getTimeout()));
+                .implicitlyWait(Duration.ofSeconds(ConfigReader.getImplicitWait()));
 
         driver.get(ConfigReader.getBaseUrl());
 

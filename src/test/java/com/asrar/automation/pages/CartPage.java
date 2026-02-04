@@ -1,6 +1,7 @@
 package com.asrar.automation.pages;
 
 import com.asrar.automation.utils.DriverFactory;
+import com.asrar.automation.utils.WaitHelper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -12,17 +13,16 @@ public class CartPage {
             LoggerFactory.getLogger(CartPage.class);
 
     private WebDriver driver;
+    private WaitHelper waitHelper;
 
-    private By cartIcon = By.className("shopping_cart_link");
     private By cartItem = By.className("inventory_item_name");
     private By checkoutButton = By.id("checkout");
 
     public CartPage() {
         this.driver = DriverFactory.getDriver();
-    }
-
-    public void openCart() {
-        driver.findElement(cartIcon).click();
+        this.waitHelper = new WaitHelper(driver);
+        // Confirms Cart page loaded
+        waitHelper.waitForVisibility(cartItem);
     }
 
     public boolean isItemDisplayedInCart() {
@@ -32,6 +32,6 @@ public class CartPage {
 
     public void clickCheckout() {
         log.info("Proceeding to checkout");
-        driver.findElement(checkoutButton).click();
+        waitHelper.waitForClickable(checkoutButton).click();
     }
 }
