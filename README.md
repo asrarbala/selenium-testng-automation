@@ -26,7 +26,7 @@ The framework automates the SauceDemo application to simulate real-world e-comme
 - DriverFactory for browser management  
 - Hooks for setup/teardown  
 - Explicit waits for stability  
-- ChromeOptions configured for stable execution
+- ChromeOptions configured for stable local execution and headless CI execution
 
 ---
 ## 📂 Project Structure
@@ -102,10 +102,15 @@ target/cucumber-report.html
 ---
 
 ## 🚀 CI Integration
-Framework is CI-ready and can be executed via GitHub Actions using headless browser execution.
+Integrated with GitHub Actions for automated test execution.
 
+Features:
+- Headless browser execution in CI
+- Maven-based test execution
+- Automated runs on push/pull requests
+- HTML report generation as CI artifacts
 ---
 
 ## 👨‍💻 Author
-Asrar Ahmad Bala  
-QA Automation Engineer
+Asrar Ahmed Bala  
+QA Engineer
