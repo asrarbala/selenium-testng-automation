@@ -112,5 +112,5 @@ Features:
 ---
 
 ## 👨‍💻 Author
-Asrar Ahmed Bala  
+Asrar Ahmad Bala  
 QA Engineer
